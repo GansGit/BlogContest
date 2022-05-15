@@ -144,4 +144,4 @@ def profile(username):
         ''')
     
 
-app.run(host="192.168.178.36",port=2308,debug=True)
+app.run()
