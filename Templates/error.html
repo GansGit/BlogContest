@@ -1,0 +1,11 @@
+<!doctype html>
+<title>My Application</title>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <p style="border: solid black;border-radius: 15px;color:red;" class=flashes>
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+    </p>
+  {% endif %}
+{% endwith %}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Blog</title>
+    <style>
+
+        body{
+            background-image:  url("../static/images/hbg.jpg");
+            font-size: 40px;
+            background-repeat: no-repeat;
+            background-size: cover;
+			
+        }
+
+        .cnb-l-d{
+			background-color: rgba(255, 255, 255, 0.5);
+			margin-left: 25%;
+			width: 50%;
+			padding-bottom: max-content;
+			border-radius:  15px;
+			padding-bottom: 5%;
+			padding-top: 1%;
+			margin-top: 10%;
+        }
+
+        .text{
+            	font-size: 50px;
+                font-weight: bold;
+        }
+
+        .center {
+            text-align: center;
+            
+
+        }
+
+        button {
+            border-radius:  15px;
+            border: none;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+
+        }
+
+        button:hover {
+            background-color: #4CAF50;
+            color: white;
+
+        }
+
+        #copyright{
+			position: absolute; 
+			bottom: 0px; 
+			right: 10px; 
+			text-align: right;
+			background-color: rgba(255, 255, 255, 0.5);
+			color: black;
+			padding: 25px;
+			font-size: 20px;
+			border: none;
+			width: max-content;
+			border-radius:  25px;
+			padding-bottom: -5%;
+		
+		}
+
+    </style>
+</head>
+<body>
+    
+    
+    <form method="POST">
+        <div class="cnb-l-d">
+        <div class="center">
+        <label for="blog_text"><div class="text">Blog Text:</div></label>
+        <br/>
+        <input style="width: 300px; height: 50px;" type="text" name="blog_content" id="blog_text">
+        <br/><br/>
+        <button type="submit">Create Blog</button>
+        </div>
+        </div>
+    </form>
+    
+<footer>
+     <div id = "copyright">©️Katsu ©️Gans</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700;1,900&display=swap');
+        body{
+            background-image: url("{{url_for('static',filename = 'images/hbg.jpg')}}");
+            background-repeat: no-repeat;
+            background-size: cover;
+			font-size: 40px;
+            
+        }
+		
+		#align_right{
+			text-align: right;
+		
+		}
+		
+        .center{
+            text-align: center;
+        }
+
+        label{
+            font-size: 100%;
+			text-decoration: underline 1px black;
+        }
+
+        .hp-l-d{
+			background-color: rgba(255, 255, 255, 0.5);
+			margin-left: 25%;
+			width: 50%;
+			padding-bottom: max-content;
+			border-radius:  15px;
+			padding-bottom: 5%;
+			padding-top: 1%;
+			margin-top: 10%;
+        }
+
+		.dropbtn {
+			background-color: rgba(255, 255, 255, 0.5);
+			color: black;
+			padding: 25px;
+			font-size: 25px;
+			border: none;
+			cursor: pointer;
+			margin-left: 5%;
+			width: 50%;
+			padding-bottom: max-content;
+			border-radius:  15px;
+			padding-bottom: 5%;
+			padding-top: 1%;
+			margin-top: 10%;
+		}
+
+		.dropdown {
+			position: relative;
+			display: inline-block;
+		}
+
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			right: 0;
+			background-color: rgba(255, 255, 255, 0.5);
+			min-width: max-content;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+
+		.dropdown-content a {
+			color: black;
+			padding: 2px 8px;
+			text-decoration: none;
+			display: block;
+		}
+
+		.dropdown-content a:hover {background-color: rgba(255, 255, 255, 0.5);}
+		
+		.dropdown:hover .dropdown-content {display: block;}
+		
+		.dropdown:hover .dropbtn {background-color: rgba(255, 255, 255, 0.5);}
+		
+		#copyright{
+			position: absolute; 
+			bottom: 0px; 
+			right: 10px; 
+			text-align: right;
+			background-color: rgba(255, 255, 255, 0.5);
+			color: black;
+			padding: 25px;
+			font-size: 20px;
+			border: none;
+			width: max-content;
+			border-radius:  25px;
+			padding-bottom: -5%;
+		
+		}
+
+		.upload{
+			background-color: rgba(255, 255, 255, 0.5);
+			margin-left: 45%;
+			width: max-content;
+			border-radius:  20px;
+			margin-bottom: 20%;
+			position: absolute; 
+			bottom: 0px;  
+			font-weight: bold;
+			font-size: 20px
+		}
+
+		.new_text{
+			background-color: rgba(255, 255, 255, 0.5);
+			margin-left: 45%;
+			width: max-content;
+			border-radius:  20px;
+			margin-bottom: 17%;
+			margin-left: 40%;
+			position: absolute; 
+			bottom: 0px;  
+			font-weight: bold;
+			font-size: 20px
+		}
+		
+
+    </style>
+
+
+</head>
+<body>
+
+	<div id = "align_right">
+	<div class="dropdown">
+	{% if session['username'] %}
+    <button class="dropbtn"><img style = "border-radius: 50px; width: 50%;" src="{{url_for('static',filename='user/{0}/pfp/images.jpg'.format(session['username']))}}">{{ session['username'] }}</button>
+    <div class="dropdown-content">
+		<form id = "logForm" method="post"></form>
+		<a onclick="document.getElementById('logForm').submit()" href = "#"><div style="font-size: 25px;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABmJLR0QA/wD/AP+gvaeTAAABKUlEQVRIie3WoUsEQRTH8c+dZzg4s8EqqMGiFqNoE8FoERRMgs3/Q9AswiWLSbSJyWhUDCajqFwQTgU5w83huu7e7nogCveDxz7evHnfnZmdmS1JVwVjmI7YEXa69EktBAMYjxWcQjWWf1oU0IFU8ZhQME17mE2IN7CQBikVAMCo9kjjekjrUC5Q/MfqQ/4f5BkHvUIqGe1POMZ6Snsd18FvRuKLOMNLHkiW9rHtc58thecE7rCM+14hMIdaQnwEh5jPggxjMyPn3PcTozOSFbSyIK+4kXImYQMXwW9iN/iF1qQseSo6Wo34DxHISbxIN9WwlpGTqT+xGfuQ34dU0NL+xvNewbe4TIg3ukGaGJLvbwW2cr7MFwi84ypYPcQGMRmAM8HeigLgA8qOLt9rGy+RAAAAAElFTkSuQmCC"/><input type="hidden" name = "logout">Ausloggen</div></a>
+	</div>
+	{% endif %}
+  	
+
+</div>
+</div>
+
+
+
+    <div class =  "hp-l-d">     
+<div class = "center"><span>DyedSoftware Blog Wettbewerb</span></div></div>	
+
+<form method="GET">
+<button type="submit"  class = "upload" >Neuer Blog?</button>
+</form>
+
+<form method="GET" action="/create_blog">
+	<button type="submit"  class = "new_text" >Lade deinen eigene Blog hoch!</button>
+</form>
+
+<div class = "center hp-l-d" id = "lower-blg">
+	{% if session['blog'] %}
+	<div class = "blog-post">
+		<div class = "blog-post-title">{{ session['blog'] }}</div>
+		
+	{% endif %}
+
+	
+
+</div>
+
+
+
+
+
+</body>
+<footer>
+	<div id = "copyright">©️Katsu ©️Gans</div>
+</footer>
+</html>
